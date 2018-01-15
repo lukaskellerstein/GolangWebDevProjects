@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"path/filepath"
 
 	template "github.com/arschles/go-bindata-html-template"
 	"github.com/gorilla/mux"
@@ -43,10 +42,6 @@ func testHandler(w http.ResponseWriter, r *http.Request) {
 //-------------------------------------
 
 func layoutFiles() []string {
-	files, err := filepath.Glob(layoutDir + "/*.gohtml")
-	if err != nil {
-		//low-level exception logging
-		fmt.Println(err.Error())
-	}
+	files := []string{"frontend/layout/layout.gohtml"}
 	return files
 }
